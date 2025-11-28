@@ -128,6 +128,7 @@ function updateGame() {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Применяем гравитацию всегда
   if (player.jumping) {
     player.velocityY += gravity;
     player.y += player.velocityY;
@@ -136,6 +137,8 @@ function updateGame() {
       player.y = canvas.height - 80;
       player.jumping = false;
       player.velocityY = 0;
+      score++;
+      updateScoreDisplay();
     }
   }
 
@@ -177,9 +180,10 @@ function updateGame() {
 }
 
 function jump() {
-  if (!player.jumping && gameRunning) {
+  if (gameRunning && !player.jumping && !player.ducking) {
     player.jumping = true;
-    player.velocityY = -12;
+    player.velocityY = -15;
+    player.y -= 5;
   }
 }
 
