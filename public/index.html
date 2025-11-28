@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Label - Сеть ресторанов в Бишкеке</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="hero-section">
+    <div class="glass-container">
+      <div class="logo">LABEL</div>
+      
+      <div id="authSection">
+        <div id="loginForm" class="auth-form active">
+          <h2>Добро пожаловать</h2>
+          <input type="text" id="loginUsername" placeholder="Логин" required>
+          <input type="password" id="loginPassword" placeholder="Пароль" required>
+          <button onclick="login()" class="btn-primary">Войти</button>
+          <p class="switch-auth">Нет аккаунта? <span onclick="showRegister()">Зарегистрироваться</span></p>
+        </div>
+
+        <div id="registerForm" class="auth-form">
+          <h2>Регистрация</h2>
+          <input type="text" id="registerUsername" placeholder="Логин" required>
+          <input type="email" id="registerEmail" placeholder="Email" required>
+          <input type="password" id="registerPassword" placeholder="Пароль" required>
+          <button onclick="register()" class="btn-primary">Зарегистрироваться</button>
+          <p class="switch-auth">Уже есть аккаунт? <span onclick="showLogin()">Войти</span></p>
+        </div>
+
+        <div id="userProfile" class="user-profile">
+          <h2>Привет, <span id="usernameDisplay"></span>!</h2>
+          <p class="welcome-text">Добро пожаловать в Label</p>
+          <button onclick="logout()" class="btn-secondary">Выйти</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="branches-section">
+    <h2 class="section-title">Наши филиалы в Бишкеке</h2>
+    
+    <div class="carousel-container">
+      <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+      
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="branch-card">
+            <div class="branch-image">
+              <!-- URL изображения филиала 1 -->
+              <img src="https://i.ibb.co/1JZzf7vr/fal-nano-banana-da1919c4-bb66-41b4-86c8-ca2c56166acb-1.png" alt="Label Ала-Тоо">
+            </div>
+            <div class="branch-info">
+              <h3>Label Ала-Тоо</h3>
+              <p class="address">пр. Чуй 125, Бишкек</p>
+              <p class="phone">+996 555 123 456</p>
+              <p class="hours">Пн-Вс: 08:00 - 23:00</p>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-image">
+              <!-- URL изображения филиала 2 -->
+              <img src="https://i.ibb.co/wNNrBw0N/fal-nano-banana-da1919c4-bb66-41b4-86c8-ca2c56166acb-0.png" alt="Label Манас">
+            </div>
+            <div class="branch-info">
+              <h3>Label Манас</h3>
+              <p class="address">ул. Манаса 45, Бишкек</p>
+              <p class="phone">+996 555 234 567</p>
+              <p class="hours">Пн-Вс: 08:00 - 23:00</p>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-image">
+              <!-- URL изображения филиала 3 -->
+              <img src="https://i.ibb.co/BKLKYLnp/Label-Modern-Restaurant-Golden-Hour.png" alt="Label Ден Сяо Пин">
+            </div>
+            <div class="branch-info">
+              <h3>Label Ден Сяо Пин</h3>
+              <p class="address">бул. Ден Сяо Пин 12, Бишкек</p>
+              <p class="phone">+996 555 345 678</p>
+              <p class="hours">Пн-Вс: 08:00 - 23:00</p>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-image">
+              <!-- URL изображения филиала 4 -->
+              <img src="https://i.ibb.co/HfCSNfhk/Label-Restaurant-Exterior-Evening-Shot.png" alt="Label Восток-5">
+            </div>
+            <div class="branch-info">
+              <h3>Label Восток-5</h3>
+              <p class="address">мкр. Восток-5, 25, Бишкек</p>
+              <p class="phone">+996 555 456 789</p>
+              <p class="hours">Пн-Вс: 08:00 - 23:00</p>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-image">
+              <!-- URL изображения филиала 5 -->
+              <img src="https://i.ibb.co/kVw6Pn8V/Label-Exterior-Twilight-Modern.png" alt="Label Ахунбаева">
+            </div>
+            <div class="branch-info">
+              <h3>Label Ахунбаева</h3>
+              <p class="address">ул. Ахунбаева 98, Бишкек</p>
+              <p class="phone">+996 555 567 890</p>
+              <p class="hours">Пн-Вс: 08:00 - 23:00</p>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-image">
+              <!-- URL изображения филиала 6 -->
+              <img src="https://i.ibb.co/3y8DtqkZ/Label-Restaurant-Entrance-Modern.png" alt="Label Молодая Гвардия">
+            </div>
+            <div class="branch-info">
+              <h3>Label Молодая Гвардия</h3>
+              <p class="address">бул. Молодая Гвардия 33, Бишкек</p>
+              <p class="phone">+996 555 678 901</p>
+              <p class="hours">Пн-Вс: 08:00 - 23:00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+    </div>
+  </section>
+
+  <section class="best-dishes-section">
+    <h2 class="section-title">Лучшие блюда</h2>
+    
+    <div class="dishes-grid">
+      <div class="dish-card animate-on-scroll">
+        <div class="dish-image">
+          <!-- URL изображения блюда 1 -->
+          <img src="https://i.ibb.co/k6wg17Cp/Avant-Garde-Molecular-Plating.png" alt="Фирменный бургер">
+        </div>
+        <h3>Фирменный бургер Label</h3>
+        <p>Сочная говяжья котлета с авторским соусом</p>
+      </div>
+
+      <div class="dish-card animate-on-scroll">
+        <div class="dish-image">
+          <!-- URL изображения блюда 2 -->
+          <img src="https://i.ibb.co/ynkZ3Vcr/Modern-Dessert-Geometric-Art.png" alt="Паста карбонара">
+        </div>
+        <h3>Паста карбонара</h3>
+        <p>Классическая итальянская паста с беконом</p>
+      </div>
+
+      <div class="dish-card animate-on-scroll">
+        <div class="dish-image">
+          <!-- URL изображения блюда 3 -->
+          <img src="https://i.ibb.co/ynkNbZrB/Seared-Protein-Geometric-Elegance.png" alt="Стейк рибай">
+        </div>
+        <h3>Стейк рибай</h3>
+        <p>Мраморная говядина прожарки medium</p>
+      </div>
+
+      <div class="dish-card animate-on-scroll">
+        <div class="dish-image">
+          <!-- URL изображения блюда 4 -->
+          <img src="YOUR_DISH_IMAGE_URL_4" alt="Десерт">
+        </div>
+        <h3>Тирамису</h3>
+        <p>Нежный итальянский десерт с кофе</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="game-section">
+    <div class="game-banner">
+      <h2>Получи бонусы!</h2>
+      <p>Играй и получай промокоды на скидку до 30%</p>
+      <button onclick="goToGame()" class="btn-game">Начать игру</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">LABEL</div>
+      <div class="footer-info">
+        <p>Сеть ресторанов в Бишкеке</p>
+        <p>© 2024 Label. Все права защищены.</p>
+      </div>
+      <div class="footer-social">
+        <p>Мы в социальных сетях</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notification" class="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
