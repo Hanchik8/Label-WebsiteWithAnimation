@@ -41,13 +41,28 @@
       font-size: 24px;
       font-weight: 600;
       color: #ffffff;
+      animation: scoreGlow 1s ease-in-out;
+    }
+
+    @keyframes scoreGlow {
+      0%, 100% { 
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+      50% { 
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+      }
     }
 
     #gameCanvas {
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      background: #0d0d0d;
+      border: 3px solid rgba(255, 215, 0, 0.4);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2), 0 10px 40px rgba(0, 0, 0, 0.5);
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+      transition: all 0.3s ease;
+    }
+
+    #gameCanvas:hover {
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4), 0 10px 50px rgba(0, 0, 0, 0.7);
     }
 
     .game-controls {
@@ -59,33 +74,50 @@
       margin-top: 15px;
       color: rgba(255, 255, 255, 0.7);
       font-size: 14px;
+      padding: 15px 30px;
+      background: rgba(255, 215, 0, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .game-info strong {
+      color: #ffd700;
+      font-weight: 600;
     }
 
     .btn {
       padding: 12px 30px;
       margin: 5px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 215, 0, 0.15);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1.5px solid rgba(255, 215, 0, 0.3);
       color: #ffffff;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
       transition: all 0.3s ease;
+      font-weight: 500;
     }
 
     .btn:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 215, 0, 0.25);
+      border-color: rgba(255, 215, 0, 0.6);
       transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+      background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
       color: #1a1a1a;
+      border-color: #ffb347;
     }
 
     .btn-primary:hover {
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+      background: linear-gradient(135deg, #ffeb99 0%, #ffd700 100%);
     }
 
     .game-over-modal {
@@ -95,11 +127,12 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(15px);
       align-items: center;
       justify-content: center;
       z-index: 1000;
+      animation: fadeIn 0.3s ease;
     }
 
     .game-over-modal.show {
@@ -107,24 +140,34 @@
     }
 
     .modal-content {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+      backdrop-filter: blur(30px);
+      border: 2px solid rgba(255, 215, 0, 0.3);
       border-radius: 20px;
-      padding: 40px;
+      padding: 50px;
       text-align: center;
       max-width: 500px;
-      animation: modalAppear 0.3s ease-out;
+      animation: modalAppear 0.4s ease-out;
+      box-shadow: 0 0 50px rgba(255, 215, 0, 0.1), inset 0 0 50px rgba(255, 255, 255, 0.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes modalAppear {
       from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.8) translateY(-20px);
       }
       to {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
       }
     }
 
@@ -174,7 +217,8 @@
     <button class="btn btn-primary" onclick="startGame()">Начать игру</button>
     <button class="btn" onclick="goHome()">Вернуться на главную</button>
     <div class="game-info">
-      Нажмите ПРОБЕЛ для прыжка | Нажмите СТРЕЛКА ВНИЗ чтобы нагнуться
+      <strong>⌨️ Управление:</strong> Нажмите <strong>ПРОБЕЛ</strong> для прыжка | Нажмите <strong>СТРЕЛКА ВНИЗ</strong> чтобы нагнуться<br>
+      <strong>🍩 Цель:</strong> Уворачивайтесь от вилок и ложек!
     </div>
   </div>
 

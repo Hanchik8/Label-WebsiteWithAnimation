@@ -7,7 +7,38 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="hero-section">
+  <!-- Навигационный header -->
+  <header class="header" id="header">
+    <div class="header-container">
+      <div class="header-logo">
+        <span class="logo-text">LABEL</span>
+      </div>
+      
+      <nav class="header-nav">
+        <a href="#home" class="nav-link active">Главная</a>
+        <a href="#branches" class="nav-link">Филиалы</a>
+        <a href="#menu" class="nav-link">Меню</a>
+        <a href="#game" class="nav-link">Игра</a>
+      </nav>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" class="mobile-nav-link">Главная</a>
+      <a href="#branches" class="mobile-nav-link">Филиалы</a>
+      <a href="#menu" class="mobile-nav-link">Меню</a>
+      <a href="#game" class="mobile-nav-link">Игра</a>
+    </div>
+  </header>
+
+  <div class="hero-section" id="home">
+    <div class="hero-particles"></div>
     <div class="glass-container">
       <div class="logo">LABEL</div>
       
@@ -38,7 +69,7 @@
     </div>
   </div>
 
-  <section class="branches-section">
+  <section class="branches-section" id="branches">
     <h2 class="section-title">Наши филиалы в Бишкеке</h2>
     
     <div class="carousel-container">
@@ -48,7 +79,6 @@
         <div class="carousel-track" id="carouselTrack">
           <div class="branch-card">
             <div class="branch-image">
-              <!-- URL изображения филиала 1 -->
               <img src="https://i.ibb.co/1JZzf7vr/fal-nano-banana-da1919c4-bb66-41b4-86c8-ca2c56166acb-1.png" alt="Label Ала-Тоо">
             </div>
             <div class="branch-info">
@@ -61,7 +91,6 @@
 
           <div class="branch-card">
             <div class="branch-image">
-              <!-- URL изображения филиала 2 -->
               <img src="https://i.ibb.co/wNNrBw0N/fal-nano-banana-da1919c4-bb66-41b4-86c8-ca2c56166acb-0.png" alt="Label Манас">
             </div>
             <div class="branch-info">
@@ -74,7 +103,6 @@
 
           <div class="branch-card">
             <div class="branch-image">
-              <!-- URL изображения филиала 3 -->
               <img src="https://i.ibb.co/BKLKYLnp/Label-Modern-Restaurant-Golden-Hour.png" alt="Label Ден Сяо Пин">
             </div>
             <div class="branch-info">
@@ -87,7 +115,6 @@
 
           <div class="branch-card">
             <div class="branch-image">
-              <!-- URL изображения филиала 4 -->
               <img src="https://i.ibb.co/HfCSNfhk/Label-Restaurant-Exterior-Evening-Shot.png" alt="Label Восток-5">
             </div>
             <div class="branch-info">
@@ -100,7 +127,6 @@
 
           <div class="branch-card">
             <div class="branch-image">
-              <!-- URL изображения филиала 5 -->
               <img src="https://i.ibb.co/kVw6Pn8V/Label-Exterior-Twilight-Modern.png" alt="Label Ахунбаева">
             </div>
             <div class="branch-info">
@@ -113,7 +139,6 @@
 
           <div class="branch-card">
             <div class="branch-image">
-              <!-- URL изображения филиала 6 -->
               <img src="https://i.ibb.co/3y8DtqkZ/Label-Restaurant-Entrance-Modern.png" alt="Label Молодая Гвардия">
             </div>
             <div class="branch-info">
@@ -130,14 +155,16 @@
     </div>
   </section>
 
-  <section class="best-dishes-section">
+  <section class="best-dishes-section" id="menu">
     <h2 class="section-title">Лучшие блюда</h2>
     
     <div class="dishes-grid">
       <div class="dish-card animate-on-scroll">
         <div class="dish-image">
-          <!-- URL изображения блюда 1 -->
           <img src="https://i.ibb.co/k6wg17Cp/Avant-Garde-Molecular-Plating.png" alt="Фирменный бургер">
+          <div class="dish-overlay">
+            <span class="dish-price">890 сом</span>
+          </div>
         </div>
         <h3>Фирменный бургер Label</h3>
         <p>Сочная говяжья котлета с авторским соусом</p>
@@ -145,8 +172,10 @@
 
       <div class="dish-card animate-on-scroll">
         <div class="dish-image">
-          <!-- URL изображения блюда 2 -->
           <img src="https://i.ibb.co/Qvhk98Kt/Modern-Appetizer-Dark-Plate-Foam.png" alt="Паста карбонара">
+          <div class="dish-overlay">
+            <span class="dish-price">750 сом</span>
+          </div>
         </div>
         <h3>Паста карбонара</h3>
         <p>Классическая итальянская паста с беконом</p>
@@ -154,8 +183,10 @@
 
       <div class="dish-card animate-on-scroll">
         <div class="dish-image">
-          <!-- URL изображения блюда 3 -->
           <img src="https://i.ibb.co/ynkNbZrB/Seared-Protein-Geometric-Elegance.png" alt="Стейк рибай">
+          <div class="dish-overlay">
+            <span class="dish-price">1590 сом</span>
+          </div>
         </div>
         <h3>Стейк рибай</h3>
         <p>Мраморная говядина прожарки medium</p>
@@ -163,8 +194,10 @@
 
       <div class="dish-card animate-on-scroll">
         <div class="dish-image">
-          <!-- URL изображения блюда 4 --> 
           <img src="https://i.ibb.co/ynkZ3Vcr/Modern-Dessert-Geometric-Art.png" alt="Десерт">
+          <div class="dish-overlay">
+            <span class="dish-price">450 сом</span>
+          </div>
         </div>
         <h3>Тирамису</h3>
         <p>Нежный итальянский десерт с кофе</p>
@@ -172,8 +205,10 @@
 
       <div class="dish-card animate-on-scroll">
         <div class="dish-image">
-          <!-- URL изображения блюда 5 -->
           <img src="https://i.ibb.co/XrhsNp33/Modern-Caesar-Salad-Dramatic.png" alt="Салат">
+          <div class="dish-overlay">
+            <span class="dish-price">590 сом</span>
+          </div>
         </div>
         <h3>Цезарь с курицей</h3>
         <p>Классический салат с курицей и сухариками</p>
@@ -181,8 +216,10 @@
 
       <div class="dish-card animate-on-scroll">
         <div class="dish-image">
-          <!-- URL изображения блюда 6 -->
           <img src="https://i.ibb.co/W4LHBnhF/Elegant-Salmon-Seasonal-Plating.png" alt="Рыба">
+          <div class="dish-overlay">
+            <span class="dish-price">1290 сом</span>
+          </div>
         </div>
         <h3>Филе лосося на гриле</h3>
         <p>Нежное филе лосося с овощами</p>
@@ -190,8 +227,9 @@
     </div>
   </section>
 
-  <section class="game-section">
+  <section class="game-section" id="game">
     <div class="game-banner">
+      <div class="game-icon">🎮</div>
       <h2>Получи бонусы!</h2>
       <p>Играй и получай промокоды на скидку до 30%</p>
       <button onclick="goToGame()" class="btn-game">Начать игру</button>

@@ -5,6 +5,9 @@ const cardsVisible = 3;
 document.addEventListener('DOMContentLoaded', () => {
   checkAuth();
   setupScrollAnimations();
+  setupHeaderMenu();
+  setupHeaderScroll();
+  setupNavLinks();
 });
 
 async function checkAuth() {
@@ -160,4 +163,74 @@ function showNotification(message, type = 'info') {
   setTimeout(() => {
     notification.classList.remove('show');
   }, 3000);
+}
+
+// ===== HEADER FUNCTIONS =====
+
+function setupHeaderMenu() {
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  
+  if (!mobileMenuBtn) return;
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Закрыть меню при клике на ссылку
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
+
+function setupHeaderScroll() {
+  const header = document.getElementById('header');
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // При прокрутке более чем на 50px - делаем header непрозрачным
+    if (scrollTop > 50) {
+      header.style.background = 'linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(45, 45, 45, 0.95) 100%)';
+      header.style.backdropFilter = 'blur(20px)';
+      header.style.borderBottom = '2px solid rgba(255, 215, 0, 0.2)';
+      header.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 215, 0, 0.1)';
+    } else {
+      // Если в начале страницы - прозрачный header
+      header.style.background = 'linear-gradient(135deg, rgba(26, 26, 26, 0) 0%, rgba(45, 45, 45, 0) 100%)';
+      header.style.backdropFilter = 'blur(0px)';
+      header.style.borderBottom = '2px solid rgba(255, 215, 0, 0)';
+      header.style.boxShadow = '0 0px 0px rgba(0, 0, 0, 0), inset 0 1px 0 rgba(255, 215, 0, 0)';
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+}
+
+function setupNavLinks() {
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('section, .hero-section');
+
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (window.pageYOffset >= sectionTop - 200) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').slice(1) === currentSection) {
+        link.classList.add('active');
+      }
+    });
+  });
 }
